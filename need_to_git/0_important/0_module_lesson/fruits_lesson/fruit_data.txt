@@ -1,0 +1,3 @@
+bananas, yellow, sweet
+grapes, purple, tangy
+apples, green, sour

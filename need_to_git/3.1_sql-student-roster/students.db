@@ -1,0 +1,46 @@
+
+
+
+
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'students'
+--
+-- ---
+
+DROP TABLE IF EXISTS `students`;
+
+CREATE TABLE `students` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `first_name` CHAR NULL DEFAULT NULL,
+  `last_name` CHAR NULL DEFAULT NULL,
+  `gender` MEDIUMTEXT NULL DEFAULT NULL,
+  `email` VARCHAR NULL DEFAULT NULL,
+  `phone` VARCHAR NULL DEFAULT NULL,
+  `birthday` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys
+-- ---
+
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `students` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `students` (`id`,`first_name`,`last_name`,`gender`,`email`,`phone`,`birthday`) VALUES
+-- ('','','','','','','');

@@ -1,0 +1,95 @@
+select country,
+count(id)
+from customers
+group by country
+order by count desc
+limit 3;
+####################
+select name from artists 
+inner join albums 
+on artists.id = albums.artist_id; 
+####################
+select name, title from albums 
+inner join artists 
+on albums.artist_id = artists.id; 
+#####################
+select * from albums 
+inner join tracks 
+on tracks.album_id  = albums.id;
+#############################
+select * from albums 
+join tracks
+on tracks.album_id  = albums.id;
+#####################
+select * from albums
+inner join tracks
+on tracks.album_id = albums.id
+where name = 'Midnight';
++++++++++++++
+select * from albums
+join artists
+on albums.artist_id = artists.id
+join tracks
+on albums.id = tracks.album_id;
+#######################
+select artists.name from artists
+join albums
+on artists.id = albums.artist_id
+join tracks
+on albums.id = tracks.album_id;
+###############################
+select artists.name from artists
+join albums
+on artists.id = albums.artist_id
+join tracks
+on albums.id = tracks.album_id
+where tracks.name = 'Midnight';
+###############################
+select name, count(artist_id) from artists
+join albums
+on artists.id = albums.artist_id
+group by name
+order by name;
+###############################
+select title, count(name) from albums 
+join tracks
+on albums.id = tracks.album_id
+group by title
+order by count DESC, title ASC;
+###############################
+select artists.id, name, count(title) from artists
+join albums
+on artists.id = albums.artist_id
+group by artists.id
+order by count desc
+limit 1;
+###############################
+select albums.id, title, artist_id, count(tracks.name) from albums
+join tracks
+on tracks.album_id = albums.id
+group by albums.id
+order by count DESC
+limit 1;
+###############################
+select first_name, last_name from customers
+join invoices
+on customers.id = invoices.customer_id
+group by albums.id
+order by count DESC
+limit 5;
+##################
+*** Unsolved: List the names of the top five customers based on the sums of their invoice totals:
+
+select first_name, last_name, sum(total) from invoices
+join customers
+on invoices.customer_id = customers.id
+group by first_name, last_name
+order by sum DESC
+limit 5;
+##################
+
+
+
+
+
+
