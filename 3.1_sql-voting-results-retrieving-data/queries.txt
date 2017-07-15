@@ -1,0 +1,87 @@
+# Queries
+
+## Release 1
+
+1.
+  select name, count(name) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  where politician_id=524
+  group by name;
+
+2.
+  select name, count(name) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  where name = 'Rep. Erik Paulsen'
+  group by name;
+
+3.
+  select name, count(name) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  group by name
+  order by count(name) desc
+  limit 8;
+
+4.
+  select name, count(name) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  group by name
+  HAVING count(name) < 11
+  order by count(name) desc;
+
+5.
+  select name, gender, first_name, last_name from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  join voters
+  on votes.voter_id = voters.id
+  where gender = 'female' AND name = 'Rep. Marcia Fudge';
+
+6.
+  select name from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  join voters
+  on votes.voter_id = voters.id
+  where first_name = 'Lizzie' AND last_name = 'Rath';
+
+7.
+  select name, location, count(name), grade_current from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  group by name
+  HAVING grade_current < 9
+  order by count(name) desc;
+
+8.
+  select location, count(voter_id) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  join voters
+  on votes.voter_id = voters.id
+  group by location
+  order by count(voter_id) desc;
+
+9.
+  select first_name, last_name, count(voter_id) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  join voters
+  on votes.voter_id = voters.id
+  group by voter_id
+  HAVING count(voter_id) > 5
+  order by count(voter_id) desc;
+
+
+###### #10 below is incomplete.  Come back later if time.
+10.
+  select name, first_name, last_name, count(voter_id) from congress_members
+  join votes
+  on votes.politician_id = congress_members.id
+  join voters
+  on votes.voter_id = voters.id
+  group by name
+  order by count(voter_id) desc;

@@ -1,0 +1,14 @@
+Noko Demo
+
+/Users/Adam/Desktop/bds_max-master 2/app/services/indexer_service.rb
+/Users/Adam/Desktop/bds_max-master 2/lib/indexer_helper/rts/dealer_com_rts.rb
+/Users/Adam/Desktop/bds_max-master 2/lib/indexer_helper/rts/cobalt_rts.rb
+/Users/Adam/Desktop/bds_max-master 2/lib/staffer_helper/cs_helper.rb
+
+
+Dealer.com Template
+http://www.jimjohnsonnissan.com/
+http://www.infinitiofmodesto.com/
+https://www.bmwofhumboldtbay.com/
+http://www.anaheimmitsubishi.com/
+http://www.landroverportland.com/

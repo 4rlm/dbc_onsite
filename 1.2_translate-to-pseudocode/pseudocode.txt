@@ -1,0 +1,7 @@
+1) Overview:  Game where users can grab gold from a 'grid' containing gold and rocks to place in their 'gold_satchel'.
+
+1) Create 3 nested arrays inside parent array called 'grid'.  Each row (inner arrays) will be 'x', and each column (index number of inner arrays) will be 'y'.
+
+2) Create method called 'grab_gold' taking the grid as a parameter and returning 'gold_satchel' variable representing the number of pieces of gold in their array.
+
+3) Inside 'grab_gold' method iterate through the length of the grid along the x and y axis.  If there is a piece of gold, push it to the 'gold_satchel' array.
