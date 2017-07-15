@@ -1,0 +1,87 @@
+1. Environment Configuration
+* configuration of our application is done in the file config/environment.rb
+* Pathname and Dir classes and the configuration of ApplicationRecord to connect with the database.
+
+
+2. Rakefile
+* Helpful tasks to get our application up and running.
+
+$ bundle exec rake -T
+Listing available Rake tasks.
+
+$ rake console
+Opens IRB with our application's environment loaded: the models are available, the connection with the database is established, etc
+
+$ rake spec
+Runs all of the spec files in our application (i.e., run the tests).
+
+$ rake db:taskname
+Related to database.  Replace 'taskname' with ... create, drop, migrate, rollback, seed, and version
+
+$ rake generate:taskname
+creating or generating files: model for creating files for Active Record models, migration for creating files for updating our database, and spec for creating test files for our models.
+
+
+2. Model-view-controller Organization
+Ex. app/models
+* Each class should be defined in its own file.
+# Ex. Dog class in app/models/dog.rb
+
+
+
+
+3. Database
+Ex. db/ (Ex. SQLite3 database)
+* migrations that help to build our database schema (e.g., creating tables).
+* db/migrate folder: one migration for each change to the database schema
+
+
+4. Organizing Test Files
+Ex. spec/schema/dogs_table_spec.rb
+
+5. Specifying Gems
+* Gemfile and Gemfile.lock
+
+####### Process ############
+1. Installing Gems
+$ gem install bundler
+$ bundle install
+
+
+2. Create the Database
+$ bundle exec rake db:create
+
+
+3. Check Database Version
+$ bundle exec rake db:version
+
+
+4. Run the Test Suite
+$ bundle exec rake spec
+
+5. Run the Migrations
+$ bundle exec rake db:migrate
+
+6. Check Database Version
+$ bundle exec rake db:version
+
+7. Run the Test Suite
+- Should pass.
+
+8. Populate the Database with Seed Data
+$ bundle exec rake db:seed
+
+9. Open and Use the Console
+$ bundle exec rake console
+ex:
+ApplicationRecord.connection.tables
+ApplicationRecord.connection.columns(:dogs)
+Dog
+Dog.all / (Dog::all) / class method / (SELECT "dogs".* FROM "dogs")
+exit
+
+10. Rollback the Database
+$ bundle exec rake db:rollback
+
+11. Drop the Database
+$ bundle exec rake db:drop
