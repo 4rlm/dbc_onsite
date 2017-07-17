@@ -1,0 +1,54 @@
+## Sample: WorkFlow ##
+
+gem install bundler
+bundle install
+rake db:create
+rake generate:model NAME=Color
+rake generate:model NAME=Fruit
+rake generate:migration NAME=create_colors
+rake generate:migration NAME=create_fruits
+rake db:migrate
+rake db:seed
+rake console
+
+################################
+#### Sample: Migration File ####
+
+class CreateColors < ActiveRecord::Migration[5.0]
+  def change
+    create_table :colors do |t|
+      t.string :color_name, { limit:50}
+      t.string :color_brightness, { limit:50}
+      t.timestamps
+    end
+  end
+end
+
+class CreateFruits < ActiveRecord::Migration[5.0]
+  def change
+    create_table :fruits do |t|
+      t.string :fruit_name, { limit:50}
+      t.string :fruit_shape, { limit:50}
+      t.timestamps
+    end
+  end
+end
+
+################################
+#### Sample: Testing and Adding Data ####
+
+rake console
+Fruit.create(fruit_name: 'apple')
+Color.create(color_name: "yellow")
+Fruit.all
+Color.all
+
+
+################################
+#### Sample: Has Many, Belongs to, Validates ####
+
+class Chamber < ApplicationRecord
+  # Remember to create a migration!
+  has_many :legislators, {foreign_key: :chamber_id}
+  validates :chamber_name, :title, { :presence => true }
+end
