@@ -1,0 +1,72 @@
+Teacher model
+that extends ActiveRecord::Base.
+
+rake generate:model NAME=Teacher
+rake generate:migration NAME=Teachers
+
+rake db:migrate
+rake db:seed
+rake console
+
+
+Create 9 teachers, each with unique names and email addresses.
+
+unique email
+
+#############
+
+belongs_to :owner, { class_name: "Person" }
+validates :owner, { :presence => true }
+validates :name, :license, { :presence => true }
+validates :license, { :uniqueness => true }
+
+t.string :fruit_name, {null: false, limit: 50}
+
+teacher can have many students.
+
+###############################
+
+Teacher.find_or_create_by(given_name: 'Bill', surname: 'Clinton', email: 'bill@aschool.edu', phone: '889-452-2321')
+
+Student.find_or_create_by(given_name: 'Melissa', surname: 'Fadim', phone: '456-567-9898', birthday: '1988-02-14')
+
+
+given_name = Faker::Name.first_name
+surname = Faker::Name.last_name
+email = Faker::Internet.email
+phone = Faker::PhoneNumber.phone_number
+birthday = generate_dob
+
+def generate_dob
+  num = Random.new
+  num.rand(10 ** 8)
+  dob = num.to_s
+  dob.insert(4, '-')
+  dob.insert(-3, '-')
+end
+
+Student.find_or_create_by(given_name: 'Melissa', surname: 'Fadim', phone: '456-567-9898', birthday: '1988-02-14')
+
+Teacher.find_or_create_by(given_name: 'Bill', surname: 'Clinton', email: 'bill@aschool.edu', phone: '889-452-2321')
+
+
+
+
+#############
+
+class Person < ActiveRecord::Base
+end
+
+class Student < Person
+  has_many :student_teachers, :foreign_key => :student_id
+  has_many :teachers, :through => :student_teachers
+end
+
+class Teacher < Person
+  # What relations go here?
+end
+
+class StudentTeacher < ActiveRecord::Base
+  belongs_to :student
+  belongs_to :teacher
+end
