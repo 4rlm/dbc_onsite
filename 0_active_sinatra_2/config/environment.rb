@@ -1,11 +1,9 @@
-require 'pry'
-
 # Requre gems and Ruby libraries
 require "active_record"
 require "rake"
 require "sqlite3"
 require "pathname"
-
+require 'pry'
 require 'sinatra'
 
 puts "In config/environment..."
@@ -60,14 +58,4 @@ Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 ####################################
 
 
-
-set :views, Proc.new { File.join(APP_ROOT, "views") }
-# set :views, File.join(File.dirname('../../', __FILE__), "views")
-
-# APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-
-# require_relative '../controllers/index'
-
-# get '/' do
-  # "Hello world!"
-# end
+set :views, Proc.new { File.join(APP_ROOT, "app","views") }

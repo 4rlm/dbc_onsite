@@ -1,0 +1,72 @@
+<h3 class="text-center">Recently Submitted Colors & Shapes</h3>
+
+<table class="table table-bordered table-hover text-center sub-section-table">
+  <tr>
+    <th>ID</th>
+    <th>Color</th>
+    <th>Shape</th>
+    <th>Updated</th>
+    <th>Created</th>
+  </tr>
+  <% @colors.each do |color| %>
+  <tr>
+    <td><%= color.id %></td>
+    <td><%= color.name %></td>
+    <td><%= color.shape %></td>
+    <td><%= color.created_at %></td>
+    <td><%= color.updated_at %></td>
+  </tr>
+  <% end %>
+</table>
+
+<!-- <form class="sub-section" action="/colors" method="post">
+  <input type="text" name="name">
+  <input type="text" name="shape">
+  <input type="submit">
+</form> -->
+
+
+
+<div class="container">
+
+  <!-- Create -->
+  <form class="form-inline text-center sub-section-form" action="/colors" method="post">
+    <h3>Add your Favorite Color and Shape</h3>
+
+    <div class="form-group">
+      <label for="Color_Name">Color</label>
+      <input type="text", name="name" class="form-control" id="Color_Name" placeholder="Enter Color">
+    </div>
+
+    <div class="form-group">
+      <label for="Shape_type">Shape</label>
+      <input type="text", name="shape" class="form-control" id="Shape_type" placeholder="Enter Shape">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+
+
+  <!-- Update -->
+  <form class="form-inline text-center sub-section-form" action="/colors" method="post">
+    <h3>Edit your Favorite Color and Shape</h3>
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text", name="id" class="form-control" id="id" placeholder="Enter ID">
+    </div>
+
+    <div class="form-group">
+      <label for="Color_Name">Color</label>
+      <input type="text", name="name" class="form-control" id="Color_Name" placeholder="Enter Color">
+    </div>
+
+    <div class="form-group">
+      <label for="Shape_type">Shape</label>
+      <input type="text", name="shape" class="form-control" id="Shape_type" placeholder="Enter Shape">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+
+</div>

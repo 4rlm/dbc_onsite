@@ -1,25 +1,19 @@
-require 'pry'
-
 # Requre gems and Ruby libraries
 require "active_record"
 require "rake"
 require "sqlite3"
 require "pathname"
 
-require 'sinatra'
 
-puts "In config/environment..."
-#####################################
-# Active Record Environment
-#####################################
-puts __FILE__
 # Identify the root directory for the application
 # so that we can later reference files from APP_ROOT
 path_to_root_directory = File.expand_path('../../', __FILE__)
 APP_ROOT = Pathname.new(path_to_root_directory)
 
+
 # Identify the name of the challenge
 APP_NAME = APP_ROOT.basename.to_s
+
 
 # Load the files in APP_ROOT/app/models/
 model_files = Dir[APP_ROOT.join('app', 'models', '*.rb')]
@@ -52,22 +46,3 @@ ActiveRecord::Base.establish_connection(database_config)
 
 # Establish connection between models and tables
 ActiveRecord::Base.connection
-
-
-# Require files in app/views and app/controllers
-# Dir[APP_ROOT.join('app', 'views', '*.rb')].each { |file| require file }
-Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
-####################################
-
-
-
-set :views, Proc.new { File.join(APP_ROOT, "views") }
-# set :views, File.join(File.dirname('../../', __FILE__), "views")
-
-# APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-
-# require_relative '../controllers/index'
-
-# get '/' do
-  # "Hello world!"
-# end
