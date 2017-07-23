@@ -1,0 +1,36 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Exclusive Members</h2>
+    <h4>Create New Member</h4>
+  </div>
+
+  <form class="form-horizontal" action="/contacts" method="post">
+
+    <%#= erb :'contacts/_form_fields', layout: false %>
+    <%= erb :'contacts/_form_fields'%>
+
+    <!-- ## Below info moved to partial (_form_fields.erb) -->
+
+    <!-- <div>
+      <label for="contact_first_name">First Name</label>
+      <input id="contact_first_name" name="contact[first_name]" type="text" />
+    </div>
+    <div>
+      <label for="contact_last_name">Last Name</label>
+      <input id="contact_last_name" name="contact[last_name]" type="text" />
+    </div>
+    <div>
+      <label for="contact_email">Email</label>
+      <input id="contact_email" name="contact[email]" type="text" />
+    </div> -->
+
+    <!-- <div class="form-group">
+      <input name="commit" type="submit" value="Create Contact">
+    </div> -->
+
+    <button class="btn btn-success" name="commit" type="submit">Create Contact</button>
+
+  </form>
+
+</div>

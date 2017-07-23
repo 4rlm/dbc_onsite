@@ -1,0 +1,20 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Exclusive Members</h2>
+    <h4>Edit Member Details.</h4>
+  </div>
+
+  <form class="form-horizontal" action="/contacts/<%= @contact.id %>" method="post">
+
+    <div class="form-group">
+      <input class="form-control" name="_method" type="hidden" value="patch" />
+    </div>
+
+    <%= erb :'contacts/_form_fields', layout: false %>
+
+    <button class="btn btn-success" name="commit" type="submit">Update Contact</button>
+
+  </form>
+
+</div>
