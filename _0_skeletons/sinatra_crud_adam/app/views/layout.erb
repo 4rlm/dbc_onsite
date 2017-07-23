@@ -9,17 +9,17 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="<%= url("css/style.css")%>">
 
     <title>My Page</title>
   </head>
 
   <body>
 
-    <div class="above">
-
+    <div>
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -29,34 +29,50 @@
             </button>
             <a class="navbar-brand" href="/">Classy Club</a>
           </div>
+
           <div id="navbar" class="collapse navbar-collapse">
+
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Home</a></li>
               <li><a href="/contacts">View Contacts</a></li>
               <li><a href="/contacts/new">Create Contact</a></li>
             </ul>
+
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">Login</button>
+            </form>
+
           </div><!--/.nav-collapse -->
         </div>
       </nav>
-
-      <div class="container">
-        <div class="main-section text-center">
-          <h1>Contact Listing App</h1>
-          <h4>Find or Add Your Contacts</h4>
-          <h5>(Anyone...)</h5>
-        </div>
-      </div><!-- /.container -->
-
     </div>
 
-    <div id='main'>
+    <div class='container erb-wrapper text-center' id='main'>
+
+      <% if @errors %>
+        <ul>
+          <% @errors.each do |error| %>
+            <li class="error-message"><%= error %></li>
+          <% end %>
+        </ul>
+        <%# else %>
+        <!-- <ul>
+          <li class="success-message">Success!</li>
+        </ul> -->
+      <% end %>
+
       <%= yield %>
+
     </div>
 
-    <div class="below">
-      <div class="footer text-center">
-        <h4>The Fun Crew &copy 2017</h4>
-      </div>
+    <div class="footer text-center">
+      <h4>The Fun Crew &copy 2017</h4>
     </div>
 
 

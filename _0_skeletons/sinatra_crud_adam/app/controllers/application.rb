@@ -9,8 +9,13 @@ end
 
 # index
 get '/contacts' do
-  # "This is the contacts index action."
   @contacts = Contact.all
+  # will_paginate
+  # 1/3) Create Instance Variable in Controller
+  # 2/3) Iterate Instance Variable in erb: <% @wp_contacts.each do |contact| %>
+  # 3/3) Include page menus at bottom of erb: <%= will_paginate @wp_contacts %>
+  @wp_contacts = Contact.all.order("updated_at DESC").paginate(page: params[:page], per_page: 10)
+
   # @contacts.map{|contact| contact.email}.to_s ## (remove this)
   erb :'contacts/index'
 end
@@ -26,7 +31,14 @@ end
 post '/contacts' do
   puts params
   @contact = Contact.create(params[:contact])
-  redirect '/contacts'  ## Add this.
+    if @contact.valid?
+      redirect '/contacts'
+    else
+      status 422
+      @errors = @contact.errors.full_messages
+      erb :'contacts/new'
+    end
+  # redirect '/contacts'  ## Add this.
   # "This is the contacts create action." ## remove this.
 end
 

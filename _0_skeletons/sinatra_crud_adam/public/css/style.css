@@ -62,3 +62,17 @@ th {
   margin: 5px;
   box-sizing: border-box;
 }
+
+.error-message {
+  background: red;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.success-message {
+  background: green;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+}
