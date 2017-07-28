@@ -1,0 +1,28 @@
+
+#######
+
+alias be=“bundle exec”
+
+function dev {
+    cd ~/dev/$1/$2/$3
+}
+
+#######
+
+alias pgstart=“pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start”
+alias killpg=“pg_ctl -D /usr/local/var/postgres stop -s -m fast”
+
+#######
+
+function lookfor {
+    lsof -i $1
+}
+
+function killtask {
+    kill -9 $1
+}
+
+################
+namespace :db do
+  desc "Drop, create, and migrate the database"
+  task :reset => [:drop, :create, :migrate]
