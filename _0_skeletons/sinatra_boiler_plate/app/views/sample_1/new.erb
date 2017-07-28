@@ -1,0 +1,36 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>MyApp</h2>
+    <h4>Create New Sample_1</h4>
+  </div>
+
+  <form class="form-horizontal" action="/sample_1" method="post">
+
+    <%#= erb :'sample_1/_form_fields', layout: false %>
+    <%= erb :'sample_1/_form_fields'%>
+
+    <!-- ## Below info moved to partial (_form_fields.erb) -->
+
+    <!-- <div>
+      <label for="col_1">col_1</label>
+      <input id="col_1" name="sample_1[col_1]" type="text" />
+    </div>
+    <div>
+      <label for="col_2">Last Name</label>
+      <input id="col_2" name="sample_1[col_2]" type="text" />
+    </div>
+    <div>
+      <label for="col_3">Email</label>
+      <input id="col_3" name="sample_1[col_3]" type="text" />
+    </div> -->
+
+    <!-- <div class="form-group">
+      <input name="commit" type="submit" value="Create Sample_1">
+    </div> -->
+
+    <button class="btn btn-success" name="commit" type="submit">Create Sample_1</button>
+
+  </form>
+
+</div>

@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Annonymous Blog - Home</h2>
+    <h4>Newest Blog Entries and Tags</h4>
+  </div>
+</div>
+
+
+<div class="row text-center flex-container">
+
+  <div class="col-md-6 box-med">
+    <h3 class="heading">Recent Entries</h3>
+
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Updated</th>
+        <th>Link</th>
+      </tr>
+      <% @entries.each do |entry|%>
+      <tr>
+        <td><%= entry.author %></td>
+        <td><%= entry.title %></td>
+        <td><%= entry.updated_at.strftime("%m/%d/%y") %></td>
+
+        <td>
+          <button class="btn btn-default" name="commit" type="submit"><a href="/entries/<%= entry.id %>">
+            <span class="glyphicon glyphicon-folder-open"></span>
+          </a></button>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-6 box-med">
+    <h3 class="heading">Popular Tags</h3>
+
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Link</th>
+      </tr>
+      <% @tags.each do |tag|%>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= tag.taggings.count %></td>
+
+        <td>
+          <button class="btn btn-default" name="commit" type="submit"><a href="/tags/<%= tag.id %>">
+            <span class="glyphicon glyphicon-folder-open"></span>
+          </a></button>
+        </td>
+
+      </tr>
+
+      <% end %>
+    </table>
+
+  </div>
+
+</div>

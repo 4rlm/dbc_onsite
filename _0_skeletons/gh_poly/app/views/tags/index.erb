@@ -1,0 +1,35 @@
+<h1>On Index - Tags ERB</h1>
+
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Count</th>
+    <th>Updated</th>
+    <th colspan="3">Manage</th>
+  </tr>
+  <% @tags.each do |tag|%>
+  <tr>
+    <td><%= tag.id %></td>
+    <td><%= tag.name %></td>
+    <td><%= tag.taggings.count %></td>
+    <!-- <td><%#= tag.updated_at %></td> -->
+    <td><%= tag.updated_at.strftime("%m/%d/%Y") %></td>
+
+    <td>
+      <button class="btn btn-default" name="commit" type="submit"><a href="/tags/<%= tag.id %>">
+        <span class="glyphicon glyphicon-folder-open"></span>
+      </a></button>
+    </td>
+
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+
+  <% end %>
+</table>
+
+<div class="digg_pagination">
+  <%= will_paginate @tags, renderer: BootstrapPagination::Sinatra %>
+  <!-- <%= will_paginate @tags %> -->
+</div>

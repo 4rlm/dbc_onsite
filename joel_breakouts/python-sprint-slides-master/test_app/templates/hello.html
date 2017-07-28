@@ -1,0 +1,20 @@
+<!doctype html>
+<head>
+    <title>Hello from Flask</title>
+</head>
+<body>
+    <h1>Hello {{ user['name'] }}!</h1>
+    <h2>
+        You are {{ user['age'] }}
+        {% if user['age'] > 1 %}
+            years
+        {% else %}
+            year
+        {% endif %} old
+    </h2>
+</body>
+
+
+
+
+
