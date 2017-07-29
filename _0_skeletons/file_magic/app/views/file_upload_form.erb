@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>file_upload_form</h2>
+  </div>
+</div>
+
+
+<div class="row text-center flex-container">
+
+  <form class="form-horizontal" action="/upload" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label for="file_upload" class="col-sm-2 control-label">file_upload</label>
+      <input type="hidden" value="<%= model %>" name="model"/>
+      <div class="col-sm-10">
+        <input class="form-control" id="file_upload" name="file" type="file" />
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit">Upload</button>
+
+  </form>
+
+</div>

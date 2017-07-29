@@ -1,0 +1,46 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Create New Blog Entry</h2>
+  </div>
+
+  <form class="form-horizontal" action="/entries" method="post">
+
+    <%#= erb :'contacts/_form_fields', layout: false %>
+    <%#= erb :'contacts/_form_fields'%>
+
+    <div class="form-group">
+      <label for="entry_author" class="col-sm-2 control-label">Author Name</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="entry_author" name="entry[author]" type="text" value="<%= @entry.author %>" placeholder="Author Name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="entry_title" class="col-sm-2 control-label">Entry Title</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="entry_title" name="entry[title]" type="text" value="<%= @entry.title %>" placeholder="Entry Title" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="entry_body" class="col-sm-2 control-label">Entry Body</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="entry_body" name="entry[body]" type="text" value="<%= @entry.body %>" placeholder="Entry Body"></textarea>
+      </div>
+    </div>
+
+    <!-- ########## TAG Input on Entry Form -->
+
+    <div class="form-group">
+      <label for="tag" class="col-sm-2 control-label">Tag(s)</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="tag" name="tag[name]" type="text" placeholder="Entry tag(s) separated by , ."></textarea>
+      </div>
+    </div>
+
+    <button class="btn btn-success" name="commit" type="submit">Submit New Entry</button>
+
+  </form>
+
+</div>
