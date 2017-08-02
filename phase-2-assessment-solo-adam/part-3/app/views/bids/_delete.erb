@@ -1,0 +1,6 @@
+<!-- # _delete.rb partial -->
+
+<form action="/bids/<%= bid.id %>" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <button class="btn btn-danger" name="commit" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+</form>

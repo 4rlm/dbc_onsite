@@ -1,0 +1,26 @@
+// from joel: javascript code for randomizing groups from a webpage
+
+// INJECT JQUERY INTO DOCUMENT
+var jq = document.createElement('script');
+jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+// ... give time for script to load, then type (or see below for non wait option)
+jQuery.noConflict();
+
+// PUSH ALL STUDENT NAMES FROM DOM INTO ARRAY
+var students = [];
+jQuery(".student .name").each(function(){
+    students.push(jQuery(this).text())
+});
+console.log(JSON.parse(students));
+
+// RANDOMLY SHUFFLE THE ARRAY
+var shuffleArray = function(array) {
+   for (var i = array.length - 1; i > 0; i--) {
+       var j = Math.floor(Math.random() * (i + 1));
+       var temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+   return array;
+}

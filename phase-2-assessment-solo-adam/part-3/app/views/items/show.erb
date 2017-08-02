@@ -1,0 +1,60 @@
+<div class="row">
+
+  <div class="erb_header">
+    <h2>Blind Auction</h2>
+    <h4>View My Auction Item</h4>
+  </div>
+</div>
+
+<div class="row">
+
+  <table class="table table-bordered table-hover table-striped">
+    <tr>
+      <th><span class="glyphicon glyphicon-user"></span></th>
+      <th>Item Name</th>
+      <th>Condition</th>
+      <th>Description</th>
+      <th>Opening Bid</th>
+      <th>Starts</th>
+      <th>Ends</th>
+    </tr>
+
+    <tr>
+      <td><%= @item.id %></td>
+      <td><%= @item.item_name %></td>
+      <td><%= @item.item_condition %></td>
+      <td><%= @item.description %></td>
+      <td><%= @item.opening_bid %></td>
+      <td><%= @item.start_time %></td>
+      <td><%= @item.end_time %></td>
+    </tr>
+
+  </table>
+
+</div>
+
+  <div class="row">
+    <div class="">
+      <h3>Submit Bid</h3>
+
+      <form class="form-horizontal" action="/bids" method="post">
+        <%#= erb :'bids/_new_bid', layout: false %>
+
+        <div class="form-group">
+          <label for="buyer_bid" class="col-sm-2 control-label">buyer_bid</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="buyer_bid" name="bid[buyer_bid]" type="number" value="<%#= @bid.buyer_bid %>" placeholder="buyer_bid" />
+          </div>
+        </div>
+
+        <button class="btn btn-success" name="commit" type="submit">Submit Bid</button>
+        <button class="btn btn-danger" name="commit" type="reset">Reset</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+</div>

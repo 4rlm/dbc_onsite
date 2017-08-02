@@ -1,0 +1,22 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Blind Auction</h2>
+    <h4>Submit Bid</h4>
+  </div>
+
+  <form class="form-horizontal" action="/bids" method="post">
+    <%#= erb :'bids/_new_bid', layout: false %>
+
+    <div class="form-group">
+      <label for="buyer_bid" class="col-sm-2 control-label">buyer_bid</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="buyer_bid" name="bid[buyer_bid]" type="number" value="<%= @bid.buyer_bid %>" placeholder="buyer_bid" />
+      </div>
+    </div>
+    <button class="btn btn-success" name="commit" type="submit">Submit Bid</button>
+    <button class="btn btn-danger" name="commit" type="reset">Reset</button>
+
+  </form>
+
+</div>

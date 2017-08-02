@@ -1,0 +1,8 @@
+<!-- We've create the form for you.  You just need to set the method and action -->
+<form id="new-store-form" action="CHANGETHIS" method="CHANGETHIS" class="form">
+  <label for="store[name]" class="ui label">Name:</label>
+  
+  <input type="text" name="store[name]" value="<%= @store.try(:name) %>" class="ui input">
+
+  <input type="submit" name="submit" value="Save Your Store" class="ui button">
+</form>

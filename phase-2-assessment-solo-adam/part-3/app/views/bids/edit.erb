@@ -1,0 +1,25 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Blind Auction</h2>
+    <h4>Edit Bid</h4>
+  </div>
+
+  <form class="form-horizontal" action="/bids/<%= @bid.id %>" method="post">
+
+    <div class="form-group">
+      <input class="form-control" name="_method" type="hidden" value="patch" />
+    </div>
+
+    <%#= erb :'contacts/_form_fields', layout: false %>
+    <%#= erb :'contacts/_form_fields'%>
+    <div class="form-group">
+      <label for="buyer_bid" class="col-sm-2 control-label">buyer_bid</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="buyer_bid" name="bid[buyer_bid]" type="number" value="<%= @bid.buyer_bid %>" placeholder="buyer_bid" />
+      </div>
+    </div>
+    <button class="btn btn-success" name="commit" type="submit">Update Bid</button>
+  </form>
+
+</div>

@@ -1,0 +1,8 @@
+<h2> <%= @article.title %></h2>
+<p><%= @article.author %></p>
+<p><a href="<%= "mailto:#{@article.email}" %>">Email Author</a></p>
+<p><%= @article.description %></p>
+<p>$<%= @article.price %></p>
+<% if @edit_key %>
+    <p><a href=<%= "/category/#{@article.category_id}/article/#{@article.id}/edit?key=#{@edit_key}" %>>edit</a></p>
+<% end %>

@@ -1,0 +1,32 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 120%;
+  background-image: url("images/paisley.png");
+}
+
+p, div {
+  background-color: #FFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-bottom: 0 none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+  border-radius: 5px;
+  text-align: center;
+}
+
+div {
+  width: 800px;
+}
+
+p {
+  width: 600px;
+}
+
+#load-tweets-button {
+  margin: 0 auto;
+  width: 25%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}

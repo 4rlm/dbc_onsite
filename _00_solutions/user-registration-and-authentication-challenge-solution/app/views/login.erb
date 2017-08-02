@@ -1,0 +1,10 @@
+<div class="container" style="padding: 20px;">
+    <% if @errors %>
+        <p style="color: red"><%= @errors %></p>
+    <% end %>
+    <form action="/login" method="post">
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="login">
+    </form>
+</div>

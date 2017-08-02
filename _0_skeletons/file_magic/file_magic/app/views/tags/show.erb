@@ -1,0 +1,34 @@
+<h1>On Show Tags ERB</h1>
+
+<table class="table">
+  <tr>
+    <th>Tag ID</th>
+    <th>Tag Name</th>
+    <th>Updated</th>
+  </tr>
+  <tr>
+    <td><%= @tag.id %></td>
+    <td><%= @tag.name %></td>
+    <td><%= @tag.updated_at.strftime("%m/%d/%Y") %></td>
+  </tr>
+</table>
+
+<table class="table">
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Read More</th>
+  </tr>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.author %></td>
+      <td><%= entry.title %></td>
+      <td>
+        <button class="btn btn-default" name="commit" type="submit"><a href="/entries/<%= entry.id %>">
+          <span class="glyphicon glyphicon-folder-open"></span>
+        </a></button>
+      </td>
+
+    </tr>
+  <% end %>
+</table>

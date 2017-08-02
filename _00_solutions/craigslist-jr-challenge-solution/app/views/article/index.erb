@@ -1,0 +1,11 @@
+<h2>Articles For <%= @category.name %></h2>
+<a href="<%= "/category/#{@category.id}/new_article" %>">Add New Article for <%= @category.name %></a>
+<ul>
+    <% if @articles.any? %>
+        <% @articles.each do |article| %>
+        <h3><a href="<%= "/category/#{@category.id}/article/#{article.id}" %>"><%= article.title %></h3>
+        <% end %> 
+    <% else %>
+        <h3>Not articles for <%= @category.name %></h3>
+    <% end %> 
+</ul>

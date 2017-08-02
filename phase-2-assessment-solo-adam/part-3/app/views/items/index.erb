@@ -1,0 +1,55 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Blind Auction</h2>
+    <h4>Auction Items - View All</h4>
+  </div>
+
+  <table class="table table-bordered table-hover table-striped">
+    <tr>
+      <th><span class="glyphicon glyphicon-user"></span></th>
+      <th>Item Name</th>
+      <th>Condition</th>
+      <th>Description</th>
+      <th>Opening Bid</th>
+      <th>Starts</th>
+      <th>Ends</th>
+
+      <th><span class="glyphicon glyphicon-envelope"></span></th>
+      <th colspan="3"><span class="glyphicon glyphicon-cog"></span> Manage</th>
+    </tr>
+    <!-- # Step 1/3 for will_paginate: create instance variable in controller. -->
+    <!-- # Step 2/3 for will_paginate: below -->
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.item_name %></td>
+      <td><%= item.item_condition %></td>
+      <td><%= item.description %></td>
+      <td><%= item.opening_bid %></td>
+      <td><%= item.start_time %></td>
+      <td><%= item.end_time %></td>
+      <td>
+        <button class="btn btn-default" name="commit" type="submit"><a href="/items/<%= item.id %>">
+          <span class="glyphicon glyphicon-folder-open"></span>
+        </a></button>
+      </td>
+
+      <td>
+        <button class="btn btn-default" name="commit" type="submit"><a href="/items/<%= item.id %>/edit">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a></button>
+      </td>
+
+      <td><%= erb :'items/_delete', layout: true, locals: { item: item }%></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="digg_pagination">
+  <%= will_paginate @items, renderer: BootstrapPagination::Sinatra %>
+  <!-- <%= will_paginate @items %> -->
+  </div>
+
+
+</div>

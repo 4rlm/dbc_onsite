@@ -1,0 +1,70 @@
+<div class="">
+
+  <div class="erb_header">
+    <h2>Blind Auction</h2>
+    <h4>Edit Auction Item</h4>
+  </div>
+
+  <form class="form-horizontal" action="/items/<%= @item.id %>" method="post">
+
+    <div class="form-group">
+      <input class="form-control" name="_method" type="hidden" value="patch" />
+    </div>
+
+    <%#= erb :'contacts/_form_fields', layout: false %>
+    <%#= erb :'contacts/_form_fields'%>
+
+        <div class="form-group">
+          <label for="item_name" class="col-sm-2 control-label">item_name</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="item_name" name="item[item_name]" type="text" value="<%= @item.item_name %>" placeholder="item_name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="item_condition" class="col-sm-2 control-label">item_condition</label>
+          <div class="col-sm-10">
+            <select class="form-control" id="item_condition" name="item[item_condition]">
+              <option value="New">New</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Bad">Bad</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="col-sm-2 control-label">description</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="description" name="item[description]" type="text" value="<%= @item.description %>" placeholder="description" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="opening_bid" class="col-sm-2 control-label">opening_bid</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="opening_bid" name="item[opening_bid]" type="text" value="<%= @item.opening_bid %>" placeholder="opening_bid" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="start_time" class="col-sm-2 control-label">start_time</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="start_time" name="item[start_time]" type="datetime" value="<%= @item.start_time %>" placeholder="YYYY-MM-DD HH:MM:SS" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="end_time" class="col-sm-2 control-label">end_time</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="end_time" name="item[end_time]" type="datetime" value="<%= @item.end_time %>" placeholder="YYYY-MM-DD HH:MM:SS" />
+          </div>
+        </div>
+
+
+
+    <button class="btn btn-success" name="commit" type="submit">Update Item</button>
+  </form>
+
+</div>

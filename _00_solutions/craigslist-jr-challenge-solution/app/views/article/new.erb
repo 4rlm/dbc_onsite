@@ -1,0 +1,9 @@
+<form action="/category/<%= @category_id %>/article" method="post">
+  <input type="hidden" name="article[category_id]" value="<%= @category_id %>">
+  Title: <input type="text" name="article[title]"><br>
+  Description: <input type="text" name="article[description]"><br>
+  Price: $<input type="text" name="article[price]"><br>
+  Author: <input type="text" name="article[author]"><br>
+  Email: <input type="text" name="article[email]"><br>
+  <input type="submit" value="Add article">
+</form>
